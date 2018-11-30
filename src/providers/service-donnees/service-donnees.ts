@@ -25,5 +25,8 @@ export class ServiceDonneesProvider {
       map(response => response['Search'] )
     );
   }
+  public getDetails(id:string){
+    return this.http.get('http://www.omdbapi.com/?i='+id+'&apikey=75522b56').pipe();
+  }
 
 }

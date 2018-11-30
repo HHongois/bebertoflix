@@ -1,13 +1,7 @@
+import { DetailsPage } from './../details/details';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServiceDonneesProvider } from './../../providers/service-donnees/service-donnees';
-
-/**
- * Generated class for the FilmPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -31,8 +25,11 @@ export class FilmPage {
     });
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FilmPage');
+  public itemTapped(event, exemple) {
+    console.log(exemple);
+    this.navCtrl.push(DetailsPage, {
+      item: exemple.imdbID
+    });
   }
 
 }

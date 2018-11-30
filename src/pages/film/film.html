@@ -20,12 +20,13 @@
 </ion-searchbar>
 <ion-card>
   <ion-card-content *ngFor="let item of data" >
-    <ion-row>
+    <ion-row (click)="itemTapped($event, item)">
       <ion-label>{{item.Title}}:</ion-label>
       <ion-label>{{item.Year}}</ion-label>
       <ion-label>{{item.Type}}</ion-label> 
       <ion-label>{{item.imdbID}}</ion-label> 
-      <ion-img width="80" height="80" src="{{item.Poster}}"></ion-img>
+      <ion-img width="80" height="80" 
+      [src]="'http://img.omdbapi.com/?i='+item.imdbID+'&h=600&apikey=75522b56'"></ion-img>
     </ion-row>
   </ion-card-content>
 </ion-card>

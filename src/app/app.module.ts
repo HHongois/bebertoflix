@@ -1,3 +1,5 @@
+import { DetailsPageModule } from './../pages/details/details.module';
+import { DetailsPage } from './../pages/details/details';
 import { SeriePageModule } from './../pages/serie/serie.module';
 import { FilmPageModule } from './../pages/film/film.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     IonicModule.forRoot(MyApp),
     FilmPageModule,
-    SeriePageModule
+    SeriePageModule,
+    DetailsPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

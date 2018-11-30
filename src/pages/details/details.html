@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-content  >
+      <ion-row *ngIf="data">
+        <ion-label>{{data.Title}}:</ion-label>
+        <ion-label>{{data.Year}}</ion-label>
+        <ion-label>{{data.Rated}}</ion-label>
+        <ion-label>{{data.Plot}}</ion-label> 
+        <ion-label>{{data.Genre}}</ion-label>
+        <ion-label>{{data.Runtime}}</ion-label>   
+        <ion-label>{{data.Director}}</ion-label>  
+        <ion-label>{{data.Actors}}</ion-label> 
+        <ion-label>{{data.BoxOffice}}</ion-label>  
+        <ion-label>{{data.Awards}}</ion-label>  
+        <ion-img width="80" height="80" 
+        [src]="'http://img.omdbapi.com/?i='+data.imdbID+'&h=600&apikey=75522b56'"></ion-img>
+       </ion-row>
+    </ion-card-content>
+  </ion-card>
+  </ion-content>

@@ -21,7 +21,7 @@
   </ion-searchbar>
   <ion-card>
     <ion-card-content *ngFor="let item of data" >
-      <ion-row>
+      <ion-row (click)="itemTapped($event, item)">
         <ion-label>{{item.Title}}:</ion-label>
         <ion-label>{{item.Year}}</ion-label>
         <ion-label>{{item.Type}}</ion-label> 

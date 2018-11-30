@@ -1,3 +1,4 @@
+import { DetailsPage } from './../details/details';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServiceDonneesProvider } from './../../providers/service-donnees/service-donnees';
@@ -24,8 +25,11 @@ export class SeriePage {
     });
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SeriePage');
+  public itemTapped(event, exemple) {
+    this.navCtrl.push(DetailsPage, {
+      item: exemple.imdbID
+    });
   }
+
 
 }
