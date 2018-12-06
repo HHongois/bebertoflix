@@ -1,3 +1,4 @@
+import { EpisodePage } from './../episode/episode';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServiceDonneesProvider } from '../../providers/service-donnees/service-donnees';
@@ -25,7 +26,7 @@ export class ListEpisodesPage {
   }
 
   public itemTapped(event, exemple) {
-    this.navCtrl.push(ListEpisodesPage, {
+    this.navCtrl.push(EpisodePage, {
       item: exemple
     });
   }

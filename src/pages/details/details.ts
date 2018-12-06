@@ -25,10 +25,8 @@ export class DetailsPage {
       this.data = listDetails;
       this.saison= new Array(parseInt(this.data['totalSeasons']));
       this.saison= this.saison.fill(0).map((el,index)=>{ 
-        // console.log(index);
         return index+1;
       });
-      console.log(this.saison);
     });
   }
 

@@ -1,6 +1,6 @@
+import { EpisodePageModule } from './../pages/episode/episode.module';
 import { ListEpisodesPageModule } from './../pages/list-episodes/list-episodes.module';
 import { DetailsPageModule } from './../pages/details/details.module';
-import { DetailsPage } from './../pages/details/details';
 import { SeriePageModule } from './../pages/serie/serie.module';
 import { FilmPageModule } from './../pages/film/film.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -24,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     FilmPageModule,
     SeriePageModule,
     DetailsPageModule,
-    ListEpisodesPageModule
+    ListEpisodesPageModule,
+    EpisodePageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

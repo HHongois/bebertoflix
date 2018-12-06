@@ -1,18 +1,24 @@
-<!--
-  Generated template for the EpisodePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>episode</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
-</ion-content>
+    <ion-navbar>
+      <ion-title>Episode </ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <ion-card>
+      <ion-card-content  >
+        <ion-grid *ngIf="data">
+            <ion-img width="100" height="100" 
+            [src]="'http://img.omdbapi.com/?i='+data.imdbID+'&h=600&apikey=75522b56'"></ion-img>
+          <ion-label>{{data.Title}}:</ion-label>
+          <ion-label>Duree : {{data.Runtime}} </ion-label>
+          <ion-label>Sortie : {{data.Released}}</ion-label>   
+          <ion-label>Note : {{data.imdbRating}}</ion-label>
+         <ion-label>Votes : {{data.imdbVotes}}</ion-label>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+    </ion-content>

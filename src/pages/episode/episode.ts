@@ -19,9 +19,10 @@ export class EpisodePage {
   public data:Object;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public donnees:ServiceDonneesProvider) {
-    // this.donnees.getDetails(this.navParams.get('exemple')).subscribe((episode) => {
-    //   this.data = episode;      
-    // });
+    this.donnees.getDetails(this.navParams.get('item')).subscribe((episode) => {
+      console.log(episode);
+      this.data = episode;      
+    });
   }
 
 

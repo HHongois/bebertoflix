@@ -26,7 +26,6 @@ export class ServiceDonneesProvider {
     );
   }
   public searchSeries(ex:string,saison:string):any{
-    console.log('http://www.omdbapi.com/?i='+ex+'&type=series&apikey=75522b56&Season='+saison);
     return this.http.get('http://www.omdbapi.com/?i='+ex+'&type=series&apikey=75522b56&Season='+saison).pipe(map(response => response['Episodes']));
   }
   public getDetails(id:string){

@@ -14,18 +14,18 @@
         <ion-label>{{data.Title}}:</ion-label>
         <ion-img width="80" height="80" 
         [src]="'http://img.omdbapi.com/?i='+data.imdbID+'&h=600&apikey=75522b56'"></ion-img>
-        <ion-label>{{data.Year}}</ion-label>
-        <ion-label>{{data.Rated}}</ion-label>
-        <ion-label>{{data.Plot}}</ion-label> 
-        <ion-label>{{data.Genre}}</ion-label>
-        <ion-label>{{data.Runtime}}</ion-label>   
-        <ion-label>{{data.Director}}</ion-label>  
-        <ion-label>{{data.Actors}}</ion-label> 
-        <ion-label>{{data.BoxOffice}}</ion-label>  
-        <ion-label>{{data.Awards}}</ion-label> 
-        <ion-label>{{data.imdbRating}}</ion-label>
-       <ion-label>{{data.imdbVotes}}</ion-label>
-       <ion-label >{{data.totalSeasons}}</ion-label>
+        <ion-label>Annee : {{data.Year}}</ion-label>
+        <ion-label>Recommandations : {{data.Rated}}</ion-label>
+        <ion-label>Description : {{data.Plot}}</ion-label> 
+        <ion-label>Genre : {{data.Genre}}</ion-label>
+        <ion-label>Durée : {{data.Runtime}}</ion-label>   
+        <ion-label>Directeur : {{data.Director}}</ion-label>  
+        <ion-label>Acteurs : {{data.Actors}}</ion-label> 
+        <ion-label>Prix : {{data.BoxOffice}}</ion-label>  
+        <ion-label> Nominations : {{data.Awards}}</ion-label> 
+        <ion-label>Note : {{data.imdbRating}}</ion-label>
+       <ion-label>Votes : {{data.imdbVotes}}</ion-label>
+       <ion-label *ngIf="data.totalSeasons">Saisons : {{data.totalSeasons}}</ion-label>
         <ion-list>
          <ion-item *ngFor="let i of  saison " (click)="itemTapped($event, data.imdbID,i)">
            Saison {{i}}
