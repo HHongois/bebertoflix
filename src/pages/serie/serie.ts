@@ -24,6 +24,7 @@ export class SeriePage {
       this.data = listMovies;
     });
   }
+  
 
   public itemTapped(event, exemple) {
     this.navCtrl.push(DetailsPage, {

@@ -16,7 +16,7 @@ export class ServiceDonneesProvider {
   }
 
   public getMovies(){
-    return this.http.get('http://www.omdbapi.com/?s=bat&apikey=75522b56').pipe(
+    return this.http.get('http://www.omdbapi.com/?s=dragon&apikey=75522b56').pipe(
         map(response => response['Search'] )
       );  
   }
@@ -24,6 +24,10 @@ export class ServiceDonneesProvider {
     return this.http.get('http://www.omdbapi.com/?s='+ex+'&type='+type+'&apikey=75522b56').pipe(
       map(response => response['Search'] )
     );
+  }
+  public searchSeries(ex:string,saison:string):any{
+    console.log('http://www.omdbapi.com/?i='+ex+'&type=series&apikey=75522b56&Season='+saison);
+    return this.http.get('http://www.omdbapi.com/?i='+ex+'&type=series&apikey=75522b56&Season='+saison).pipe(map(response => response['Episodes']));
   }
   public getDetails(id:string){
     return this.http.get('http://www.omdbapi.com/?i='+id+'&apikey=75522b56').pipe();

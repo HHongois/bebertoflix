@@ -10,8 +10,10 @@
 <ion-content padding>
   <ion-card>
     <ion-card-content  >
-      <ion-row *ngIf="data">
+      <ion-grid *ngIf="data">
         <ion-label>{{data.Title}}:</ion-label>
+        <ion-img width="80" height="80" 
+        [src]="'http://img.omdbapi.com/?i='+data.imdbID+'&h=600&apikey=75522b56'"></ion-img>
         <ion-label>{{data.Year}}</ion-label>
         <ion-label>{{data.Rated}}</ion-label>
         <ion-label>{{data.Plot}}</ion-label> 
@@ -20,10 +22,29 @@
         <ion-label>{{data.Director}}</ion-label>  
         <ion-label>{{data.Actors}}</ion-label> 
         <ion-label>{{data.BoxOffice}}</ion-label>  
-        <ion-label>{{data.Awards}}</ion-label>  
-        <ion-img width="80" height="80" 
-        [src]="'http://img.omdbapi.com/?i='+data.imdbID+'&h=600&apikey=75522b56'"></ion-img>
-       </ion-row>
+        <ion-label>{{data.Awards}}</ion-label> 
+        <ion-label>{{data.imdbRating}}</ion-label>
+       <ion-label>{{data.imdbVotes}}</ion-label>
+       <ion-label >{{data.totalSeasons}}</ion-label>
+        <ion-list>
+         <ion-item *ngFor="let i of  saison " (click)="itemTapped($event, data.imdbID,i)">
+           Saison {{i}}
+         </ion-item>
+        </ion-list>
+       <!-- <ion-list>
+         <ion-item *ngFor="let i of  saison">
+           {{i}}
+         </ion-item>
+        </ion-list> -->
+        <!-- <ion-select >
+            <ion-option *ngFor="let i of  saison" (click)="itemTapped($event, data.imdbID,i)">
+              Saison i</ion-option>
+          </ion-select> -->
+       <button ion-button>
+        <a href="{{data.Website}}"> clic</a>
+      </button> 
+             
+      </ion-grid>
     </ion-card-content>
   </ion-card>
   </ion-content>

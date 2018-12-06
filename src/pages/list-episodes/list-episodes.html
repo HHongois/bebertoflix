@@ -1,0 +1,20 @@
+<ion-header>
+
+    <ion-navbar>
+      <ion-title>Listes des episodes</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <ion-card>
+      <ion-card-content  >
+          <ion-list>
+           <ion-item *ngFor="let i of  data; let b = index" (click)="itemTapped($event, i.imdbID)" >
+             Episode {{b+1}} : {{i.Title}}
+           </ion-item>
+          </ion-list>           
+      </ion-card-content>
+    </ion-card>
+    </ion-content>
