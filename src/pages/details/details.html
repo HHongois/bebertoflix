@@ -12,11 +12,12 @@
     <ion-card-content  >
       <ion-grid *ngIf="data">
         <ion-label>{{data.Title}}:</ion-label>
-        <ion-img width="80" height="80" 
+        <ion-img style="height: 40%;width:30%" 
         [src]="'http://img.omdbapi.com/?i='+data.imdbID+'&h=600&apikey=75522b56'"></ion-img>
         <ion-label>Annee : {{data.Year}}</ion-label>
         <ion-label>Recommandations : {{data.Rated}}</ion-label>
         <ion-label>Description : {{data.Plot}}</ion-label> 
+        <ion-label>imdb : {{data.imdbID}}</ion-label>
         <ion-label>Genre : {{data.Genre}}</ion-label>
         <ion-label>Durée : {{data.Runtime}}</ion-label>   
         <ion-label>Directeur : {{data.Director}}</ion-label>  

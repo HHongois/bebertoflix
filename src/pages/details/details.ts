@@ -17,27 +17,29 @@ import { ServiceDonneesProvider } from '../../providers/service-donnees/service-
 })
 export class DetailsPage {
 
-  public data:Object;
-  public saison:Array<number> = [];
+  public data: Object;
+  public saison: Array<number> = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public donnees:ServiceDonneesProvider) {
-    this.donnees.getDetails(this.navParams.get('item')).subscribe((listDetails) =>{
+  constructor(public navCtrl: NavController, public navParams: NavParams, public donnees: ServiceDonneesProvider) {
+    this.donnees.getDetails(this.navParams.get('item')).subscribe((listDetails) => {
       this.data = listDetails;
-      this.saison= new Array(parseInt(this.data['totalSeasons']));
-      this.saison= this.saison.fill(0).map((el,index)=>{ 
-        return index+1;
-      });
+      if (this.data['totalSeasons']) {
+        this.saison = new Array(parseInt(this.data['totalSeasons']));
+        this.saison = this.saison.fill(0).map((el, index) => {
+          return index + 1;
+        });
+      }
     });
   }
 
-  
 
-  public itemTapped(event, exemple,i) {
+
+  public itemTapped(event, exemple, i) {
     this.navCtrl.push(ListEpisodesPage, {
       item: exemple,
-      numSaison:i
+      numSaison: i
     });
   }
- 
+
 
 }
