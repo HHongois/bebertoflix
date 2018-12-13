@@ -19,17 +19,16 @@ export class FavorisPage {
   public data: any = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public sauvegarde: SauvegardeProvider) {
-    this.sauvegarde.getSauvegarde()
-    .then(
-      (result) => {
-       this.data = result
-      //  this.data.fill(this.data.index).map((el, index) => {
-      //   return index + 1;
-      // });
-       console.log(this.data)
-      });
+
 
   }
+public ionViewDidEnter(){
+  this.sauvegarde.getSauvegarde()
+  .then(
+    (result) => {
+      this.data = result
+    });
 
+}
 
 }

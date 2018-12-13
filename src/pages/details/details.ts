@@ -3,6 +3,7 @@ import { ListEpisodesPage } from './../list-episodes/list-episodes';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServiceDonneesProvider } from '../../providers/service-donnees/service-donnees';
+import { isEmpty } from 'rxjs/operators';
 
 /**
  * Generated class for the DetailsPage page.
@@ -23,19 +24,33 @@ export class DetailsPage {
   public favoris: boolean = false;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public donnees: ServiceDonneesProvider,public sauvegarde: SauvegardeProvider) {
-    this.donnees.getDetails(this.navParams.get('item')).subscribe((listDetails) => {
-      this.data = listDetails;
-      if (this.data['totalSeasons']) {
-        this.saison = new Array(parseInt(this.data['totalSeasons']));
-        this.saison = this.saison.fill(0).map((el, index) => {
-          return index + 1;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public donnees: ServiceDonneesProvider, public sauvegarde: SauvegardeProvider) {
+    this.sauvegarde.getSauvegarde()
+      .then(
+        (result) => {
+          this.donnees.getDetails(this.navParams.get('item')).subscribe((listDetails) => {
+            this.data = listDetails;
+            if (this.data['totalSeasons']) {
+              this.saison = new Array(parseInt(this.data['totalSeasons']));
+              this.saison = this.saison.fill(0).map((el, index) => {
+                return index + 1;
+              });
+            }
+          });
+          console.log(result)
+          this.isFavoris(result);
         });
-      }
-    });
   }
 
+  public isFavoris(tab2: any) {
+    for (let i of tab2) {
+      if (i.imdbID == this.navParams.get('item')) {
+        this.favoris = true;
+        break;
+      }
+    }
 
+  }
 
   public itemTapped(event, exemple, i) {
     this.navCtrl.push(ListEpisodesPage, {
@@ -43,7 +58,7 @@ export class DetailsPage {
       numSaison: i
     });
   }
-  public saveFavoris(){
+  public saveFavoris() {
     if (this.favoris) {
       this.favoris = false;
       this.sauvegarde.removeFavoris(this.data);
