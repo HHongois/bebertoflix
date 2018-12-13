@@ -1,3 +1,4 @@
+import { SauvegardeProvider } from './../../providers/sauvegarde/sauvegarde';
 import { ListEpisodesPage } from './../list-episodes/list-episodes';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -19,8 +20,10 @@ export class DetailsPage {
 
   public data: Object;
   public saison: Array<number> = [];
+  public favoris: boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public donnees: ServiceDonneesProvider) {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public donnees: ServiceDonneesProvider,public sauvegarde: SauvegardeProvider) {
     this.donnees.getDetails(this.navParams.get('item')).subscribe((listDetails) => {
       this.data = listDetails;
       if (this.data['totalSeasons']) {
@@ -40,6 +43,14 @@ export class DetailsPage {
       numSaison: i
     });
   }
-
+  public saveFavoris(){
+    if (this.favoris) {
+      this.favoris = false;
+      this.sauvegarde.removeFavoris(this.data);
+    } else {
+      this.favoris = true;
+      this.sauvegarde.addFavoris(this.data);
+    }
+  }
 
 }

@@ -26,7 +26,6 @@ export class FilmPage {
   }
 
   public itemTapped(event, exemple) {
-    console.log(exemple);
     this.navCtrl.push(DetailsPage, {
       item: exemple.imdbID
     });

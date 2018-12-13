@@ -1,3 +1,4 @@
+import { FavorisPageModule } from './../pages/favoris/favoris.module';
 import { EpisodePageModule } from './../pages/episode/episode.module';
 import { ListEpisodesPageModule } from './../pages/list-episodes/list-episodes.module';
 import { DetailsPageModule } from './../pages/details/details.module';
@@ -8,10 +9,12 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 import { ServiceDonneesProvider } from '../providers/service-donnees/service-donnees';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
+import { SauvegardeProvider } from '../providers/sauvegarde/sauvegarde'; 
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { HttpClientModule } from '@angular/common/http';
     SeriePageModule,
     DetailsPageModule,
     ListEpisodesPageModule,
-    EpisodePageModule
+    EpisodePageModule,
+    FavorisPageModule,
+    IonicStorageModule.forRoot()
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -35,7 +41,8 @@ import { HttpClientModule } from '@angular/common/http';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ServiceDonneesProvider
+    ServiceDonneesProvider,
+    SauvegardeProvider
   ]
 })
 export class AppModule {}

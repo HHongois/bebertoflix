@@ -1,9 +1,12 @@
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>Details</ion-title>
+  <ion-navbar color="primary">
+    <ion-title *ngIf="data">{{data.Title}}</ion-title>
+    <ion-buttons end>
+      <button ion-button incon-only style="font-size: 1.7em" (click)=saveFavoris()>
+        <ion-icon [name]="favoris ? 'star':'star-outline'"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 

@@ -1,3 +1,4 @@
+import { FavorisPage } from './../favoris/favoris';
 import { SeriePage } from './../serie/serie';
 import { FilmPage } from './../film/film';
 import { Component } from '@angular/core';
@@ -11,6 +12,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class FilmsSeriesPage {
   filmRoot = FilmPage;
   serieRoot = SeriePage;
+  favorisRoot = FavorisPage;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
