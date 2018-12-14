@@ -12,19 +12,20 @@
 
 </ion-header>
 
-<ion-content padding>
-  <ion-searchbar
-  [(ngModel)]="entree"
-  (ionInput)="search()"
-  >
-</ion-searchbar>
-<ion-card>
-  <ion-card-content *ngFor="let item of data" >
-    <ion-row (click)="itemTapped($event, item)">
-      <ion-label>{{item.Title}}:</ion-label>
-      <ion-img width="80" height="80" 
-      [src]="'http://img.omdbapi.com/?i='+item.imdbID+'&h=600&apikey=75522b56'"></ion-img>
+<ion-content class="card-background-page">
+
+  <ion-searchbar [(ngModel)]="entree" (ionInput)="search()"></ion-searchbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col xs-12 lg-6 md-4 *ngFor="let item of data">
+        <ion-card (click)="itemTapped($event, item)">
+          <div class="card-inside">
+            <img [src]="'http://img.omdbapi.com/?i='+item.imdbID+'&h=600&apikey=75522b56'" />
+            <div class="card-title">{{item.Title}}</div>
+          </div>
+        </ion-card>
+      </ion-col>
     </ion-row>
-  </ion-card-content>
-</ion-card>
+
+  </ion-grid>
 </ion-content>

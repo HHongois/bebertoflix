@@ -3,7 +3,6 @@ import { ListEpisodesPage } from './../list-episodes/list-episodes';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServiceDonneesProvider } from '../../providers/service-donnees/service-donnees';
-import { isEmpty } from 'rxjs/operators';
 
 /**
  * Generated class for the DetailsPage page.
@@ -37,7 +36,6 @@ export class DetailsPage {
               });
             }
           });
-          console.log(result)
           this.isFavoris(result);
         });
   }
