@@ -1,5 +1,18 @@
 page-details {
 
+    .card-background-page {
 
+        ion-card {
+          text-align: center;
+          height: 400px;
+          width: 300px;
+        }
+        img{
+        height: 400px;
+        width: 300px;
+        border-radius: 2%;
+        }
+
+    }
 
 }

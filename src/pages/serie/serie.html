@@ -12,23 +12,24 @@
 
 </ion-header>
 
-<ion-content padding>
-  <h1>Serie</h1>
-    <ion-searchbar
-    [(ngModel)]="entree"
-    (ionInput)="search()"
-    >
-  </ion-searchbar>
-  <ion-card>
-    <ion-card-content *ngFor="let item of data" >
-      <ion-row (click)="itemTapped($event, item)">
-        <ion-label>{{item.Title}}:</ion-label>
-        <ion-label>{{item.Year}}</ion-label>
-        <ion-label>{{item.Type}}</ion-label> 
-        <ion-label>{{item.imdbID}}</ion-label> 
-        <ion-img width="80" height="80" src="{{item.Poster}}"></ion-img>
+<ion-content class="card-background-page">
+
+    <ion-searchbar [(ngModel)]="entree" (ionInput)="search()"></ion-searchbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-xs-12 *ngFor="let item of data">
+  
+          <ion-card (click)="itemTapped($event, item)">
+  
+            <div class="card-inside">
+              <img src="{{item.Poster}}" />
+              <div class="card-title">{{item.Title}}</div>
+            </div>
+            
+          </ion-card>
+  
+        </ion-col>
       </ion-row>
-    </ion-card-content>
-  </ion-card>
-</ion-content>
+    </ion-grid>
+  </ion-content>
 
