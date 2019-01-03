@@ -43,19 +43,42 @@
     </ion-card-content>
   </ion-card>
   </ion-content> -->
-  <ion-content class="card-background-page">
+<ion-content class="card-background-page">
 
-      <ion-grid *ngIf="data">
-        <ion-row>
-          <ion-col col-4 push-4 >
-    
-            <ion-card>
-    
-                <img src="{{data.Poster}}" />
-              
-            </ion-card>
-    
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-content>
+  <ion-grid *ngIf="data">
+    <ion-row>
+      <ion-col align-self-center >
+        <ion-card text-wrap>
+
+          <img src="{{data.Poster}}" />
+          <ion-label>
+            <h2>Description et Synopsis</h2>
+            <span class="description">{{data.Plot}}</span>
+          </ion-label>
+
+          <ion-label><span>Date de sortie :</span> {{data.Year}}</ion-label>
+          <ion-label><span>De :</span> {{data.Director}}</ion-label>
+          <ion-label><span>Avec :</span> {{data.Actors}}</ion-label>
+          <ion-label><span>Genre : </span>{{data.Genre}}</ion-label>
+          <ion-label><span>Recommandations :</span>{{data.Rated}}</ion-label>
+          <!-- <ion-label><span>imdb : </span>{{data.imdbID}}</ion-label> -->
+          <ion-label><span>Durée : </span>{{data.Runtime}}</ion-label>
+          <ion-label><span>Prix :</span> {{data.BoxOffice}}</ion-label>
+          <ion-label> <span>Nominations : </span>{{data.Awards}}</ion-label>
+          <ion-label><span>Note : </span>{{data.imdbRating}}/10, {{data.imdbVotes}} votes</ion-label>
+          <ion-label *ngIf="data.totalSeasons">{{data.totalSeasons}} saisons</ion-label>
+
+          <ion-list>
+            <ion-item *ngFor="let i of  saison " (click)="itemTapped($event, data.imdbID,i)">
+              Saison {{i}}
+            </ion-item>
+          </ion-list>
+          <button ion-button (click)="openWebsite(data.Website)" >
+            {{data.Website}}
+          </button>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -4,15 +4,43 @@ page-details {
 
         ion-card {
           text-align: center;
-          height: 400px;
-          width: 300px;
+          height: 100%;
+          width: 100%;
+        //   background-color:linen;
+          margin:auto;
+        }
+        ion-item{
+            text-align: center;
+
         }
         img{
-        height: 400px;
-        width: 300px;
+        height: 60%;
+        width: 50%; 
         border-radius: 2%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top:15px;
         }
-
+        span{
+            font-family:Arial, Helvetica, sans-serif;
+            font-weight:bolder;
+            font-style: italic;
+            color:lightslategrey;
+        }
+        h2{
+            font-family:Arial, Helvetica, sans-serif;
+            font-size:5m;
+            font-weight:bolder;
+            font-style: italic;
+            color:lightslategrey; 
+        }
+        .description{
+            color:black;
+            font-weight:normal;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-display: initial;
+        }
     }
 
 }

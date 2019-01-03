@@ -56,6 +56,9 @@ export class DetailsPage {
       numSaison: i
     });
   }
+  public openWebsite(exemple){
+  
+  }
   public saveFavoris() {
     if (this.favoris) {
       this.favoris = false;
