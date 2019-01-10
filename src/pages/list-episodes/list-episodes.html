@@ -1,20 +1,45 @@
 <ion-header>
 
-    <ion-navbar>
-      <ion-title>Listes des episodes</ion-title>
-    </ion-navbar>
+  <ion-navbar>
+    <ion-title>Listes des episodes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let i of  data; let b = index" (click)="itemTapped($event, i.imdbID)">
+        <ion-card>
+          <ion-card-content>
+            <ion-list>
+              <ion-item>
+                Episode {{b+1}} : {{i.Title}}
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+
+
+<!-- <ion-grid>
+      <ion-row>
+        <ion-col col-xs-12 *ngFor="let item of data">
   
-  </ion-header>
+          <ion-card (click)="itemTapped($event, item)">
   
+            <div class="card-inside">
+              <img src="{{item.Poster}}" />
+              <div class="card-title">{{item.Title}}</div>
+            </div>
+            
+          </ion-card>
   
-  <ion-content padding>
-    <ion-card>
-      <ion-card-content  >
-          <ion-list>
-           <ion-item *ngFor="let i of  data; let b = index" (click)="itemTapped($event, i.imdbID)" >
-             Episode {{b+1}} : {{i.Title}}
-           </ion-item>
-          </ion-list>           
-      </ion-card-content>
-    </ion-card>
-    </ion-content>
+        </ion-col>
+      </ion-row>
+    </ion-grid> -->

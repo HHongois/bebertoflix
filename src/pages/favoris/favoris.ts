@@ -1,3 +1,4 @@
+import { DetailsPage } from './../details/details';
 import { SauvegardeProvider } from './../../providers/sauvegarde/sauvegarde';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -22,13 +23,17 @@ export class FavorisPage {
 
 
   }
-public ionViewDidEnter(){
-  this.sauvegarde.getSauvegarde()
-  .then(
-    (result) => {
-      this.data = result
+  public itemTapped(event, exemple) {
+    this.navCtrl.push(DetailsPage, {
+      item: exemple.imdbID
     });
-
-}
+  }
+  public ionViewDidEnter() {
+    this.sauvegarde.getSauvegarde()
+      .then(
+        (result) => {
+          this.data = result
+        });
+  }
 
 }

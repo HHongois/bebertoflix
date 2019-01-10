@@ -7,18 +7,18 @@
   </ion-header>
   
   
-  <ion-content padding>
-    <ion-card>
+  <ion-content class="card-background-page" padding>
+    <ion-row>
+    <ion-card text-wrap>
       <ion-card-content  >
         <ion-grid *ngIf="data">
-            <ion-img width="100" height="100" 
-            [src]="'http://img.omdbapi.com/?i='+data.imdbID+'&h=600&apikey=75522b56'"></ion-img>
-          <ion-label>{{data.Title}}:</ion-label>
-          <ion-label>Duree : {{data.Runtime}} </ion-label>
-          <ion-label>Sortie : {{data.Released}}</ion-label>   
-          <ion-label>Note : {{data.imdbRating}}</ion-label>
-         <ion-label>Votes : {{data.imdbVotes}}</ion-label>
+          <div class="card-inside">
+            <img src="{{data.Poster}}" />
+            <div class="card-title">{{data.Title}}</div>
+          </div>
+          <ion-label><span>Duree :</span> {{data.Runtime}}  <span>Sortie :</span> {{data.Released}}  <span>Note :</span> {{data.imdbRating}}  <span>Votes :</span> {{data.imdbVotes}}</ion-label>
         </ion-grid>
       </ion-card-content>
     </ion-card>
+  </ion-row>
     </ion-content>

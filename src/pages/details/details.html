@@ -47,7 +47,7 @@
 
   <ion-grid *ngIf="data">
     <ion-row>
-      <ion-col align-self-center >
+      <ion-col align-self-center>
         <ion-card text-wrap>
 
           <img src="{{data.Poster}}" />
@@ -66,14 +66,16 @@
           <ion-label><span>Prix :</span> {{data.BoxOffice}}</ion-label>
           <ion-label> <span>Nominations : </span>{{data.Awards}}</ion-label>
           <ion-label><span>Note : </span>{{data.imdbRating}}/10, {{data.imdbVotes}} votes</ion-label>
-          <ion-label *ngIf="data.totalSeasons">{{data.totalSeasons}} saisons</ion-label>
+          <div *ngIf="data.Type !== 'movie'">
+          <ion-label *ngIf="data.totalSeasons !== 'N/A'">{{data.totalSeasons}} saisons</ion-label>
 
-          <ion-list>
-            <ion-item *ngFor="let i of  saison " (click)="itemTapped($event, data.imdbID,i)">
-              Saison {{i}}
-            </ion-item>
-          </ion-list>
-          <button ion-button (click)="openWebsite(data.Website)" >
+            <ion-list *ngIf="data.totalSeasons !== 'N/A'">
+              <ion-item *ngFor="let i of  saison " (click)="itemTapped($event, data.imdbID,i)">
+                Saison {{i}}
+              </ion-item>
+            </ion-list>
+          </div>
+          <button ion-button color="light" (click)="openLink(data.Website)">
             {{data.Website}}
           </button>
         </ion-card>

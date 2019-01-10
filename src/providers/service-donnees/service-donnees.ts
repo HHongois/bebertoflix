@@ -26,6 +26,13 @@ export class ServiceDonneesProvider {
     );
   }
   public searchMovies(ex: string, type: string) {
+    
+    if (ex === '' && type === "series") {
+      return this.getSeries();
+    }
+    if(ex === '' && type === "movie"){
+      return this.getMovies();
+    }
     return this.http.get('http://www.omdbapi.com/?s=' + ex + '&type=' + type + '&apikey=75522b56').pipe(
       map(response => response['Search'])
     );

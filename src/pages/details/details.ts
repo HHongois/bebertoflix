@@ -1,3 +1,4 @@
+import { LienWebProvider } from './../../providers/lien-web/lien-web';
 import { SauvegardeProvider } from './../../providers/sauvegarde/sauvegarde';
 import { ListEpisodesPage } from './../list-episodes/list-episodes';
 import { Component } from '@angular/core';
@@ -23,24 +24,32 @@ export class DetailsPage {
   public favoris: boolean = false;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public donnees: ServiceDonneesProvider, public sauvegarde: SauvegardeProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public donnees: ServiceDonneesProvider, public sauvegarde: SauvegardeProvider,public lien:LienWebProvider) {
     this.sauvegarde.getSauvegarde()
       .then(
         (result) => {
           this.donnees.getDetails(this.navParams.get('item')).subscribe((listDetails) => {
             this.data = listDetails;
-            if (this.data['totalSeasons']) {
-              this.saison = new Array(parseInt(this.data['totalSeasons']));
-              this.saison = this.saison.fill(0).map((el, index) => {
-                return index + 1;
-              });
-            }
+            console.log(this.data);
+            if(this.data['Type'] !== "movie"){
+              if (this.data['totalSeasons'] !== 'N/A') {
+                this.saison = new Array(parseInt(this.data['totalSeasons']));
+                this.saison = this.saison.fill(0).map((el, index) => {
+                  return index + 1;
+                });
+              }
+            }            
           });
           this.isFavoris(result);
         });
   }
+  
+   openLink(url: string){
+    this.lien.openWithSystemBrowser(url);
+  }
 
   public isFavoris(tab2: any) {
+    console.log(tab2);
     for (let i of tab2) {
       if (i.imdbID == this.navParams.get('item')) {
         this.favoris = true;
@@ -57,7 +66,7 @@ export class DetailsPage {
     });
   }
   public openWebsite(exemple){
-  
+    this.lien.open(exemple);
   }
   public saveFavoris() {
     if (this.favoris) {

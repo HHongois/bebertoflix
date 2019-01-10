@@ -13,14 +13,32 @@
 </ion-header>
 
 
-<ion-content padding>
-  <ion-card>
+<ion-content class="card-background-page" padding>
+  <!-- <ion-card>
     <ion-card-content>
       <ion-list *ngIf="data">
         <ion-item *ngFor="let d of data">
+          <img src={{d.Poster}}/>
           {{d.Title}}
         </ion-item>
       </ion-list>
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
+
+  <ion-grid>
+      <ion-row *ngIf="data">
+        <ion-col col-xs-12 *ngFor="let item of data">
+  
+          <ion-card (click)="itemTapped($event, item)">
+  
+            <div class="card-inside">
+              <img src="{{item.Poster}}" />
+              <div class="card-title">{{item.Title}}</div>
+            </div>
+            
+          </ion-card>
+  
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 </ion-content>

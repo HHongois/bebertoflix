@@ -1,3 +1,4 @@
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { FavorisPageModule } from './../pages/favoris/favoris.module';
 import { EpisodePageModule } from './../pages/episode/episode.module';
 import { ListEpisodesPageModule } from './../pages/list-episodes/list-episodes.module';
@@ -14,7 +15,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 import { ServiceDonneesProvider } from '../providers/service-donnees/service-donnees';
 import { HttpClientModule } from '@angular/common/http';
-import { SauvegardeProvider } from '../providers/sauvegarde/sauvegarde'; 
+import { SauvegardeProvider } from '../providers/sauvegarde/sauvegarde';
+import { LienWebProvider } from '../providers/lien-web/lien-web'; 
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { SauvegardeProvider } from '../providers/sauvegarde/sauvegarde';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServiceDonneesProvider,
-    SauvegardeProvider
+    SauvegardeProvider,
+    InAppBrowser,
+    LienWebProvider
   ]
 })
 export class AppModule {}
