@@ -12,21 +12,21 @@ import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser'
 export class LienWebProvider {
 
   options: InAppBrowserOptions = {
-    location: 'yes',//Or 'no' 
-    hidden: 'no', //Or  'yes'
+    location: 'yes',
+    hidden: 'no', 
     clearcache: 'yes',
     clearsessioncache: 'yes',
-    zoom: 'yes',//Android only ,shows browser zoom controls 
+    zoom: 'yes',
     hardwareback: 'yes',
     mediaPlaybackRequiresUserAction: 'no',
-    shouldPauseOnSuspend: 'no', //Android only 
-    closebuttoncaption: 'Close', //iOS only
-    disallowoverscroll: 'no', //iOS only 
-    toolbar: 'yes', //iOS only 
-    enableViewportScale: 'no', //iOS only 
-    allowInlineMediaPlayback: 'no',//iOS only 
-    presentationstyle: 'pagesheet',//iOS only 
-    fullscreen: 'yes',//Windows only    
+    shouldPauseOnSuspend: 'no',
+    closebuttoncaption: 'Close', 
+    disallowoverscroll: 'no',  
+    toolbar: 'yes',  
+    enableViewportScale: 'no',  
+    allowInlineMediaPlayback: 'no', 
+    presentationstyle: 'pagesheet', 
+    fullscreen: 'yes',    
   };
   constructor(public http: HttpClient, private iab: InAppBrowser) {
     console.log('Hello LienWebProvider Provider');

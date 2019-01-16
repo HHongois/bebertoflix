@@ -19,7 +19,6 @@ export class SauvegardeProvider {
 
     this.storage.get(details['imdbID']).then((result) => {
 
-      console.log(result)
       if (!result) {
         this.storage.set(details['imdbID'], details);
       }

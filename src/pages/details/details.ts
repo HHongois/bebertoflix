@@ -30,7 +30,6 @@ export class DetailsPage {
         (result) => {
           this.donnees.getDetails(this.navParams.get('item')).subscribe((listDetails) => {
             this.data = listDetails;
-            console.log(this.data);
             if(this.data['Type'] !== "movie"){
               if (this.data['totalSeasons'] !== 'N/A') {
                 this.saison = new Array(parseInt(this.data['totalSeasons']));
@@ -49,7 +48,6 @@ export class DetailsPage {
   }
 
   public isFavoris(tab2: any) {
-    console.log(tab2);
     for (let i of tab2) {
       if (i.imdbID == this.navParams.get('item')) {
         this.favoris = true;
@@ -65,9 +63,7 @@ export class DetailsPage {
       numSaison: i
     });
   }
-  public openWebsite(exemple){
-    this.lien.open(exemple);
-  }
+
   public saveFavoris() {
     if (this.favoris) {
       this.favoris = false;

@@ -9,40 +9,6 @@
   </ion-navbar>
 </ion-header>
 
-
-<!-- <ion-content padding>
-  <ion-card>
-    <ion-card-content  >
-      <ion-grid *ngIf="data">
-        <ion-label>{{data.Title}}:</ion-label>
-        <ion-img style="height: 40%;width:30%" 
-        [src]="'http://img.omdbapi.com/?i='+data.imdbID+'&h=600&apikey=75522b56'"></ion-img>
-        <ion-label>Annee : {{data.Year}}</ion-label>
-        <ion-label>Recommandations : {{data.Rated}}</ion-label>
-        <ion-label>Description : {{data.Plot}}</ion-label> 
-        <ion-label>imdb : {{data.imdbID}}</ion-label>
-        <ion-label>Genre : {{data.Genre}}</ion-label>
-        <ion-label>Durée : {{data.Runtime}}</ion-label>   
-        <ion-label>Directeur : {{data.Director}}</ion-label>  
-        <ion-label>Acteurs : {{data.Actors}}</ion-label> 
-        <ion-label>Prix : {{data.BoxOffice}}</ion-label>  
-        <ion-label> Nominations : {{data.Awards}}</ion-label> 
-        <ion-label>Note : {{data.imdbRating}}</ion-label>
-       <ion-label>Votes : {{data.imdbVotes}}</ion-label>
-       <ion-label *ngIf="data.totalSeasons">Saisons : {{data.totalSeasons}}</ion-label>
-        <ion-list>
-         <ion-item *ngFor="let i of  saison " (click)="itemTapped($event, data.imdbID,i)">
-           Saison {{i}}
-         </ion-item>
-        </ion-list>
-       <button ion-button>
-        <a href="{{data.Website}}"> clic</a>
-      </button> 
-             
-      </ion-grid>
-    </ion-card-content>
-  </ion-card>
-  </ion-content> -->
 <ion-content class="card-background-page">
 
   <ion-grid *ngIf="data">
@@ -61,7 +27,6 @@
           <ion-label><span>Avec :</span> {{data.Actors}}</ion-label>
           <ion-label><span>Genre : </span>{{data.Genre}}</ion-label>
           <ion-label><span>Recommandations :</span>{{data.Rated}}</ion-label>
-          <!-- <ion-label><span>imdb : </span>{{data.imdbID}}</ion-label> -->
           <ion-label><span>Durée : </span>{{data.Runtime}}</ion-label>
           <ion-label><span>Prix :</span> {{data.BoxOffice}}</ion-label>
           <ion-label> <span>Nominations : </span>{{data.Awards}}</ion-label>
